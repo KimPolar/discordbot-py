@@ -9,6 +9,7 @@ from discord import File
 from numpy import *
 
 bot = discord.Bot()
+token = ""
 
 @bot.event
 async def on_ready():
