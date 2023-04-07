@@ -7,9 +7,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 from discord import File
 from numpy import *
+import os
 
 bot = discord.Bot()
-token = ""
+token = os.environ['token']
 
 @bot.event
 async def on_ready():
