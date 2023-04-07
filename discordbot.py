@@ -16,7 +16,18 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
-
+    
+def telenum(callnum):
+    callnum = int(callnum.replace("-","")[3:7])
+    if callnum < 2180 or 3099 < callnum < 3200 or 3499 < callnum < 3900 or 3999 < callnum < 4200 or \
+    4499 < callnum < 5100 or 5199 < callnum < 5500 or 5899 < callnum < 5970 or 6199 < callnum < 6500 or 7099 < callnum < 7200 or 8499 < callnum < 9500: #SKT인 경우
+        return "SKT"
+    if 2199 < callnum < 2500 or 3899 < callnum < 4000 or 5499 < callnum < 5900 or 7499 < callnum < 7800 or 7899 < callnum < 8500:
+        return "LG U+"
+    if 2179 < callnum < 2200 or 2499 < callnum < 3100 or 3199 < callnum < 3500 or 4199 < callnum < 4500 or 5099 < callnum < 5200 or 6499 < callnum < 6900 or 7199 < callnum < 7500 or 9499 < callnum:
+        return "KT"
+    else:
+        return "미배정"
 
 @bot.slash_command(description="Pong!")
 async def ping(ctx):
@@ -61,5 +72,10 @@ async def 그래프(ctx,
     plt.plot(x, y)
     plt.savefig('plot.png')
     await ctx.respond(file=File('./plot.png'))
+    
+@bot.slash_command(description="통신사별 원배정 국번")
+async def 원국번(ctx,
+              번호: Option(str, "전화번호"),):
+    await ctx.respond(telenum(번호))
     
 bot.run('MTA4OTQxOTUxNjAyMDI2OTA4Ng.GwIYLl.PNJ33hnys6f6ZIr8a4O48yG4oPxfkBXMnZ4zYA')
