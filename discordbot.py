@@ -78,4 +78,4 @@ async def 원국번(ctx,
               번호: Option(str, "전화번호"),):
     await ctx.respond(telenum(번호))
     
-bot.run('MTA4OTQxOTUxNjAyMDI2OTA4Ng.GwIYLl.PNJ33hnys6f6ZIr8a4O48yG4oPxfkBXMnZ4zYA')
+bot.run(token)
