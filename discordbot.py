@@ -31,6 +31,12 @@ def telenum(callnum):
     else:
         return "미배정"
 
+def spam(callnum):
+    data = {
+        "SCH_TEL_NO" : str(callnum)
+    }
+    return BeautifulSoup(requests.post("http://moyaweb.com/search_result.do", params=data ).text,'html.parser').select('div')[2].select('table > tr > td > label')[0].text.replace("	","").replace("\n","")
+
 @bot.slash_command(description="Pong!")
 async def ping(ctx):
     val = round(float(bot.latency)*1000,0)
@@ -78,6 +84,9 @@ async def 그래프(ctx,
 @bot.slash_command(description="통신사별 원배정 국번")
 async def 원국번(ctx,
               번호: Option(str, "전화번호"),):
-    await ctx.respond(telenum(번호))
+    embed = discord.Embed(title = "전화번호 검색 결과", color = 0x9BE9FA)
+    embed.add_field(name="원국번", value=telenum(번호))
+    embed.add_field(name="스팸", value=spam(번호))
+    await ctx.respond(embed=embed)
     
 bot.run(token)
