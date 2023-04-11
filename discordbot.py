@@ -80,7 +80,7 @@ async def 기댓값(ctx,
               별1: Option(str, "별 한개 리뷰 수"),):
     r_arr = [int(별5), int(별4), int(별3), int(별2), int(별1)]
     ex_val = (r_arr[0]+1)/(sum(r_arr)+5)
-    await ctx.respond("그 곳에서 시켰을 때 5점의 만족도를 얻을 확률의 기댓값 : " + str(ex_val) + "%")
+    await ctx.respond("그 곳에서 시켰을 때 5점의 만족도를 얻을 확률의 기댓값 : " + str(round(100*ex_val, 1)) + "%")
 
 @bot.slash_command(description="그래프")
 async def 그래프(ctx,
