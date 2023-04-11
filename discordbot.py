@@ -82,7 +82,7 @@ async def 그래프(ctx,
     await ctx.respond(file=File('./plot.png'))
     
 @bot.slash_command(description="통신사별 원배정 국번")
-async def 원국번(ctx,
+async def 번호검색(ctx,
               번호: Option(str, "전화번호"),):
     embed = discord.Embed(title = "전화번호 검색 결과", color = 0x9BE9FA)
     embed.add_field(name="원국번", value=telenum(번호))
