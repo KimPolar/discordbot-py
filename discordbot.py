@@ -4,10 +4,10 @@ from discord.commands import Option
 from math import *
 from sympy import *
 import matplotlib.pyplot as plt
-import numpy as np
 from discord import File
 from numpy import *
 import os
+from bs4 import BeautifulSoup
 
 bot = discord.Bot()
 token = os.environ['token']
@@ -74,7 +74,7 @@ async def 그래프(ctx,
              fx: Option(str, "함수"),
              범위: Option(int, "범위"),):
     plt.clf()
-    x = np.arange(-1*범위, 범위)
+    x = arange(-1*범위, 범위)
     y = eval(fx)
     plt.figure(figsize=(20,10))
     plt.plot(x, y)
