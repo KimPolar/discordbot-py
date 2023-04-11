@@ -1,4 +1,4 @@
-import discord, datetime, random
+import discord, datetime, random, os, requests
 from discord_webhook import DiscordWebhook
 from discord.commands import Option
 from math import *
@@ -6,7 +6,6 @@ from sympy import *
 import matplotlib.pyplot as plt
 from discord import File
 from numpy import *
-import os
 from bs4 import BeautifulSoup
 
 bot = discord.Bot()
