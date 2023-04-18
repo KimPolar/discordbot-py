@@ -110,5 +110,5 @@ async def kogpt(ctx,
     try:
         await ctx.respond(b)
     except:
-        await ctx.send(b)
+        await ctx.send("<@" + ctx.author.id + ">\n" + 문자열 + "\n" + b)
 bot.run(token)
