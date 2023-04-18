@@ -103,7 +103,7 @@ async def 번호검색(ctx,
     await ctx.respond(embed=embed)
     
 @bot.slash_command(description="KoGPT2")
-async def KoGPT(ctx,
+async def kogpt(ctx,
                 문자열: Option(str, "할 말"),):
     a = os.popen('curl -X POST "https://main-ko-gpt2-scy6500.endpoint.ainize.ai/generate" -H "accept: application/json" -H "Content-Type: multipart/form-data" -F "text=안녕 반가워" -F "length=-1"').read()
     b = a.split(":")[1].replace('"',"").translate({ord('\\'): None}).replace("n","\\n").replace("}","")
