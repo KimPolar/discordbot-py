@@ -107,5 +107,8 @@ async def kogpt(ctx,
                 문자열: Option(str, "할 말"),):
     a = os.popen('curl -X POST "https://main-ko-gpt2-scy6500.endpoint.ainize.ai/generate" -H "accept: application/json" -H "Content-Type: multipart/form-data" -F "text=안녕 반가워" -F "length=-1"').read()
     b = a.split(":")[1].replace('"',"").translate({ord('\\'): None}).replace("n","\\n").replace("}","")
-    await ctx.respond(b)
+    try:
+        await ctx.respond(b)
+    except:
+        await ctx.send(b)
 bot.run(token)
