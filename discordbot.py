@@ -105,11 +105,12 @@ async def 번호검색(ctx,
 @bot.slash_command(description="60갑자")
 async def 육십갑자(ctx,
                서력기원: Option(str, "연도를 서력기원으로 써주세요"),):
+    a = 서력기원
     sg = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸']
     sg_k = ['갑', '을', '병', '정', '무', '기', '경', '신', '임', '계']
     sj = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥']
     sj_k = ['자', '축', '인', '묘', '진', '사', '오', '미', '신', '유', '술', '해']
-
+    
     color = {"갑":"푸른 ", "을":"푸른 ", "병":"붉은 ", "정":"붉은 ", "무":"노란 ", "기":"노란 ", "경":"흰 ", "신":"흰 ", "임":"검은 ", "계":"검은 "}
     animal = {"자":"쥐의 해","축":"소의 해","인":"호랑이의 해","묘":"토끼의 해","진":"용의 해","사":"뱀의 해","오":"말의 해","미":"양의 해","신":"원숭이의 해","유":"닭의 해","술":"개의 해","해":"돼지의 해"}
     
@@ -119,6 +120,7 @@ async def 육십갑자(ctx,
     embed = discord.Embed(title=korean + "년", description = chinese, color = 0xc0ffee)
     embed.add_field(name=desc)
     await ctx.respond(embed=embed)
+    
 @bot.slash_command(description="KoGPT2")
 async def kogpt(ctx,
                 문자열: Option(str, "할 말"),):
